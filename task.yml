@@ -4,8 +4,6 @@
   tasks:
   - name: launching ec2
     ec2:
-      aws_access_key: AKIAX4GYHK4FCADMFH46 
-      aws_secret_key: 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
       instance_type: t2.micro
       key_name: viktor_key
       image: ami-009c174642dba28e4
