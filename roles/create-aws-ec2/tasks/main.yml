@@ -1,2 +1,4 @@
 ---
 # tasks file for create-aws-ec2
+- include: create_ec2.yml
+
