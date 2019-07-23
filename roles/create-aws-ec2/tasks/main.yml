@@ -1,4 +1,7 @@
 ---
 # tasks file for create-aws-ec2
+- include: create_security_group.yml
 - include: create_ec2.yml
+- include: ssh_connect.yml
+- include: install_nginx.yml
 
