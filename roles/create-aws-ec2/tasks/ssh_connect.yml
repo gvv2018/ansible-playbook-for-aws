@@ -7,8 +7,8 @@
 
 - name: Add tag to Instance(s)
   ec2_tag:
-    aws_access_key: "{{ ec2_access_key }}"
-    aws_secret_key: "{{ ec2_secret_key }}"
+#    aws_access_key: "{{ ec2_access_key }}"
+#    aws_secret_key: "{{ ec2_secret_key }}"
     resource: "{{ item.id }}" 
     region: "{{ region }}" 
     state: "present"

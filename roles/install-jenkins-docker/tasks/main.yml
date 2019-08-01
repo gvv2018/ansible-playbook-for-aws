@@ -1,0 +1,12 @@
+---
+# tasks file for install-jenkins-docker
+- name: Jenkins container
+  docker_container:
+    name: Jenkins
+    image: jenkins/jenkins
+    state: started
+    restart: yes
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes: jenkins_home:/var/jenkins_home

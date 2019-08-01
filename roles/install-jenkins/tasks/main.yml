@@ -1,2 +1,3 @@
 ---
 # tasks file for install-jenkins
+- include: install_jenkins.yml

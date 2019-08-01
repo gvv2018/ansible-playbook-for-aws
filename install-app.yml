@@ -1,0 +1,8 @@
+---
+- name: nginx install
+  hosts: tag_Type_jenkins
+  become: yes
+  roles:
+#    - install-docker
+#    - install-jenkins-docker
+    - install-jenkins

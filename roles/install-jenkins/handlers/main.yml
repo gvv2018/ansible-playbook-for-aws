@@ -1,2 +1,4 @@
 ---
 # handlers file for install-jenkins
+- name: restart Jenkins
+  service: name=jenkins state=restarted

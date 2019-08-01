@@ -1,0 +1,29 @@
+---
+# tasks file for install-jenkins
+
+- name: Add Jenkins key
+  apt_key:
+    url: "{{ jenkins_key }}"
+    state: present
+
+- name: Add Jenkins repo
+  apt_repository:
+    repo: "{{ jenkins_repo }}"
+    state: present
+    update_cache: true
+  when: jenkins_repo != ""
+
+- name: Install Java 8
+  apt:
+    name: openjdk-8-jre-headless
+    update_cache: yes
+    state: present
+
+- name: Install Jenkins
+  apt:
+    name: jenkins
+    update_cache: yes
+    state: present
+
+- name: Show Jenkins pass for web
+  command: cat /var/lib/jenkins/secrets/initialAdminPassword
