@@ -25,5 +25,3 @@
     update_cache: yes
     state: present
 
-- name: Show Jenkins pass for web
-  command: cat /var/lib/jenkins/secrets/initialAdminPassword

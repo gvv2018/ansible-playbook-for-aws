@@ -1,0 +1,32 @@
+---
+# tasks file for install-jenkins
+
+- name: Install Nginx
+  apt:
+   name: nginx
+   state: present
+   update_cache: yes
+
+- name: Delete configuration
+  file:
+    path: /etc/nginx/sites-available/default
+    state: absent
+
+- name: Copy configarution
+  template:
+    dest: /etc/nginx/sites-available/default
+    src: default.j2
+    owner: root
+    mode: 644
+
+- name: Create simlink
+  file:
+    src: /etc/nginx/sites-available/default
+    dest: /etc/nginx/sites-enabled/default
+    state: link
+
+- name: Restart nginx
+  command: /etc/init.d/nginx restart
+
+- name: Show Jenkins pass for web
+  command: cat /var/lib/jenkins/secrets/initialAdminPassword
