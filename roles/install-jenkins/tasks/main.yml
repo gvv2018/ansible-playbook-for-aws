@@ -1,4 +1,4 @@
 ---
 # tasks file for install-jenkins
-- include: install_jenkins.yml
 - include: install_nginx.yml
+- include: install_jenkins.yml

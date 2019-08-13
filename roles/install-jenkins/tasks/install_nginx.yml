@@ -28,5 +28,3 @@
 - name: Restart nginx
   command: /etc/init.d/nginx restart
 
-- name: Show Jenkins pass for web
-  command: cat /var/lib/jenkins/secrets/initialAdminPassword

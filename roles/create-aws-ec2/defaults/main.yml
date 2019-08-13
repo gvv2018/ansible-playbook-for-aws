@@ -4,7 +4,7 @@ instance_type: t2.micro
 image: ami-009c174642dba28e4
 region: eu-central-1
 key_name: gvv2012
-instance_name: Test-instance
-security_group: test-group
+instance_name: Jenkins-instance
+security_group: Jenkins-group
 vpc_id: vpc-6de8fa06
   
