@@ -25,9 +25,9 @@
     update_cache: yes
     state: present
 
-- name: Sleep 30 second
-  wait_for: timeout=30
-  delegate_to: localhost
+#- name: Sleep 30 second
+#  wait_for: timeout=30
+#  delegate_to: localhost
 
 - name: Init password for jenkins
   command: cat /var/lib/jenkins/secrets/initialAdminPassword

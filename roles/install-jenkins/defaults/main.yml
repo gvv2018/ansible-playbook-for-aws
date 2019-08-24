@@ -2,3 +2,5 @@
 # defaults file for install-jenkins
 jenkins_key: https://pkg.jenkins.io/debian/jenkins-ci.org.key
 jenkins_repo: deb http://pkg.jenkins.io/debian-stable binary/
+#create_key_dir: mkdir /etc/nginx/ssl-certs
+#key_generate: openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl-certs/nginx.key -out /etc/nignx/ssl-certs/nginx.crt

@@ -1,0 +1,49 @@
+---
+# tasks file for install-jenkins
+
+- name: Install Nginx
+  apt:
+   name: nginx
+   state: present
+   update_cache: yes
+
+- name: Create dir for ssl
+  file:
+     path: /etc/nginx/ssl-certs
+     state: directory
+
+- name: Copy nginx.key
+  template:
+    dest: /etc/nginx/ssl-certs/nginx.key
+    src: nginx.key
+    owner: root
+    mode: 644
+
+- name: Copy nginx.crt
+  template:
+    dest: /etc/nginx/ssl-certs/nginx.crt
+    src: nginx.crt
+    owner: root
+    mode: 644
+
+- name: Delete configuration
+  file:
+    path: /etc/nginx/sites-available/default
+    state: absent
+
+- name: Copy configarution
+  template:
+    dest: /etc/nginx/sites-available/default
+    src: default_ssl.j2
+    owner: root
+    mode: 644
+
+- name: Create simlink
+  file:
+    src: /etc/nginx/sites-available/default
+    dest: /etc/nginx/sites-enabled/default
+    state: link
+
+- name: Restart nginx
+  command: /etc/init.d/nginx restart
+
