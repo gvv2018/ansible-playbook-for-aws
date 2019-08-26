@@ -4,10 +4,23 @@ pipeline {
   agent {
     label 'master'
   }
-  option {
-    buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: 10))
     timestamps()
   }
+  environment{
+    AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+  }
+
+  stages {
+    stage ("Install ansible") {
+      steps {
+        sh 'sudo apt install ansible -y'
+      }
+    }
+  }
+
   stages {
     stage ("Create AWS EC2 Instance") {
       steps {
