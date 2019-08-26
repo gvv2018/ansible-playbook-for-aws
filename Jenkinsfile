@@ -23,8 +23,8 @@ pipeline {
       steps {
 //        ansiblePlaybook(playbook: 'create-ec2.yml')
 //        ansibleVault(action: 'decrypt', input: 'scripts/gvv2012.pem', vaultCredentialsId: 'gvv2012-key-pass')
-        sh 'cat scripts/gvv2012.pem'
-//        ansiblePlaybook(inventory: 'inventory/ec2.py', playbook: 'install-app.yml')
+//        sh 'cat scripts/gvv2012.pem'
+        ansiblePlaybook(credentialsId: 'gvv2012_pem', inventory: 'inventory/ec2.py', playbook: 'install-app.yml')
       }
     }
   }
