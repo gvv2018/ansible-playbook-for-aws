@@ -14,16 +14,9 @@ pipeline {
   }
 
   stages {
-    stage ("Install ansible") {
-      steps {
-        sh 'sudo apt install ansible -y'
-      }
-    }
-  }
-
-  stages {
     stage ("Create AWS EC2 Instance") {
       steps {
+        sh 'sudo apt install ansible -y'
         ansiblePlaybook(playbook: 'create-ec2.yml')
       }
     }
