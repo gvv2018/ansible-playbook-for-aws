@@ -22,7 +22,7 @@ pipeline {
     stage ("Create AWS EC2 Instance") {
       steps {
         ansiblePlaybook(playbook: 'create-ec2.yml')
-        ansiblePlaybook(playbook: 'install-app.yml', inventory: 'inventory/ec2.py')
+//        ansiblePlaybook(playbook: 'install-app.yml', inventory: 'inventory/ec2.py')
       }
     }
   }
