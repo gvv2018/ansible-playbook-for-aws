@@ -1,8 +1,9 @@
 ---
-- name: nginx install
-  hosts: tag_Type_jenkins
+- name: Install nginx(ssl), jenkins and ansible
+#  hosts: tag_Type_jenkins
+  hosts: tag_Name_Docker_instance
   become: yes
   roles:
-#    - install-docker
-#    - install-jenkins-docker
-    - install-jenkins
+    - install-docker
+#    - install-mysql-docker
+#    - install-jenkins

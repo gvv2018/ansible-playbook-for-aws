@@ -12,3 +12,6 @@
     name: ['apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'docker-ce']
     state: present
     update_cache: yes
+
+- name: Add user to docker group
+  shell: "sudo usermod -aG docker $USER"
