@@ -16,13 +16,14 @@ pipeline {
   environment{
     AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+    ansible_private_key_file = credentials('AWS-EC2-gvv2012-key')
   }
 
   stages {
     stage ("Create AWS EC2 Instance") {
       steps {
 //        ansiblePlaybook(playbook: 'create-ec2.yml')
-        ansiblePlaybook(playbook: 'install-app.yml', inventory: 'inventory/ec2.py')
+        ansiblePlaybook(playbook: 'install-app.yml', inventory: 'inventory/ec2.py'  )
       }
     }
   }
